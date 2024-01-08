@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 80px;
+        }
+        
+        #idDiv {
+        width: 80px;
+        height: 80px;
+        background-color: hsla(240, 60%, 60%,1);
+        transition: 4s;
+        }
+    </style>
+    <script>
+        function mOk(pGbn){
+            lObj = document.getElementById('idDiv');
+            if(pGbn=='trans')
+            {
+                lObj.style.transform = `translate(50px,100px)`;
+                lObj.style.width = '120px';
+            }
+            else if(pGbn=='rotate')
+            {    
+                lObj.style.transform=`rotate(135deg)`;
+            }
+            else if(pGbn=='scale')
+            {
+                lObj.style.transform=`scale(2,4)`;
+            }
+            else if(pGbn=='skewX')
+            {
+                lObj.style.transform=`skewX(45deg)`;
+            }    
+            else if(pGbn=='skewY')
+            {
+                lObj.style.transform=`skewY(45deg)`;
+            }
+            else if(pGbn=='rotateX')
+            {
+                l0bj.style.transform = `rotateX(150deg)`
+            }
+            else if(pGbn=='rotateY')
+            {
+                l0bj.style.transform = `rotateY(150deg)`
+            }
+            else if(pGbn=='rotateZ')
+            {
+                l0bj.style.transform = `rotateZ(150deg)`
+            }
+            else if(pGbn=='reset')
+            {
+                window.location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="mOk('trans');"> translate </button>
+    <button onclick="mOk('rotate');"> rotate 135 도 </button>
+    <button onclick="mOk('scale');"> scale(2,4) </button>
+    <button onclick="mOk('skewX');"> skewX(45도) </button>
+    <button onclick="mOk('skewY');"> skewY(45도) </button>
+    <button onclick="mOk('reset');"> reset </button>
+    <button onclick="mOk('rotateX');"> rotateX(150도) </button>
+    <button onclick="mOk('rotateY');"> rotateY(150도) </button>
+    <button onclick="mOk('rotateZ');"> rotateZ(150도) </button>
+    <div id="idDiv"> </div>"
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .clsDiv {
+            width: 10vw;
+            height: 15vh;
+            /* background-color: tomato; */
+            transition: 4s;
+            border: 2px solid;
+        }
+
+        #idLnr{
+            transition-timing-function: linear;
+            background-color: tomato;
+            border-radius: 10px 0 0 0;
+        }
+
+        #idEase{
+            transition-timing-function: ease;
+            background-color: lightsalmon;
+            border-radius: 0 10px 0 0;
+        }
+
+        #idEaseIn{
+            transition-timing-function: ease-in;
+            background-color: rgb(255, 255, 123);
+            border-radius: 0 0 10px 0;
+        }
+
+        #idEaseOut{
+            transition-timing-function: ease-out;
+            background-color: lightseagreen;
+            border-radius: 0 0 0 10px;
+        }
+
+        #idEaseInOut{
+            transition-timing-function: ease-in-out;
+            background-color: lightskyblue;
+            border-radius: 0 10px 0 10px;
+        }
+
+
+    </style>
+    <script>
+        function mOk(){
+            let arrDiv = document.querySelectorAll(".clsDiv");
+            var ltext = document.getElementById("idBtn").textContent;
+            // alert(ltext)
+            let lWidth="";
+            if (ltext=="변신") // 변신 버튼을 클릭했을 때
+            {
+                // alert(ltext)
+                lWidth = "80vw"
+                document.getElementById("idBtn").textContent="초기화";
+            }
+            else if(ltext == "초기화")// 초기화 버튼을 클릭했을 때
+            {
+                document.getElementById("idBtn").textContent="변신";
+                lWidth = "10vw"
+            }
+
+            for(let i=0; i < arrDiv.length ; i++)
+            {
+                arrDiv[i].style.witdh = lWidth;
+            }
+            // alert(lwidth)
+            // arrDiv.forEach((pItem,pIdx,pArr)=>{
+                // alert(lwidth)
+              //  pItem.style.width=lwidth;
+            //});
+                
+            // var lDiv = document.getElementById("idDiv")
+            // lDiv.style.width = "90vw";
+            // lDiv.style.height = "90vh";
+            // lDiv.style.background = "lightsalmon";
+        }
+    </script>
+</head>
+<body>
+    <div> welcome to transition world!! </div>
+    <button id="idBtn" onclick="mOk();">변신</button>
+    <div class="clsDiv" id="idLnr"> linear </div>
+    <div class="clsDiv" id="idEase"> ease </div>
+    <div class="clsDiv" id="idEaseIn"> ease-in </div>
+    <div class="clsDiv" id="idEaseOut"> ease-out </div>
+    <div class="clsDiv" id="idEaseInOut"> ease-in-out </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idPrnt{
+            width: 80vw;
+            height: 120vh;
+            background-color: hsla(120, 80%, 60%,1);
+            position: relative;
+        }
+        #idChild{
+            width: 80px;
+            height: 80px;
+            background-color: hsla(240, 60%, 60%,1);
+        }
+        @keyframes mAni1{
+            from {background-color: hsla(240, 100%, 50%,1);left:10px; top:10px; ;}
+            to {background-color: hsla(0, 100%, 50%,1);left:200px; top:200px; ;}
+        }
+        @keyframes mAniMulti{
+            0% {background-color: hsla(0, 100%, 50%,1);left:0px; top:0px; ;}
+            20% {background-color: hsla(30, 100%, 50%,1);left:30px; top:30px; ;}
+            40% {background-color: hsla(60, 100%, 50%,1);left:60px; top:60px; ;}
+            60% {background-color: hsla(120, 100%, 50%,1);left:90px; top:90px; ;}
+            80% {background-color: hsla(240, 100%, 50%,1);left:120px; top:120px; ;}
+            100% {background-color: hsla(210, 100%, 30%,1);left:150px; top:150px; ;}
+        }
+    </style>
+    <script>
+        function mOk(pGbn){
+            lChld = document.querySelector('#idChild');
+            if(pGbn=="static")
+            {
+                lChld.style.position = "static";
+                lChld.style.animation="mAni1 4s forwards";
+            }
+            else if(pGbn=="relative")
+            {
+                lChld.style.position = "relative";
+                lChld.style.animation="mAni1 4s forwards";
+            }
+            else if(pGbn=="absolute")
+            {
+                lChld.style.position = "absolute";
+                lChld.style.animation="mAniMulti 4s forwards infinite alternate";
+            }
+            else if(pGbn=="fixed")
+            {
+                lChld.style.position = "fixed";
+                lChld.style.animation="mAni1 4s forwards";
+            }
+            else if(pGbn=="reset")
+            {
+                window.location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="mOk('static')"> static </button>
+    <button onclick="mOk('relative')"> relative </button>
+    <button onclick="mOk('absolute')"> absolute </button>
+    <button onclick="mOk('fixed')"> fixed </button>
+    <button onclick="mOk('reset')"> reset </button>
+    <div> hello animation world!! </div>
+    <div> nict to meet you!! </div>
+    <div> how do you feel about this school? </div>
+    <div> how about this school if student? </div>
+    <div> how about this basic of web programing teacher? </div>
+    <div id="idPrnt"idPrnt>
+        <div> div child1 </div>
+        <div> div child2 </div>
+        <div> div child3 </div>
+        <div id="idChild"> 대소고에서 갇혀서 살고 있는 박상민 </div>
+        <div> div child5 </div>
+    </div>
+</body>
+</html>

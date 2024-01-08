@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idPrnt{
+            width: 80vw;
+            height: 80vh;
+            background-color: hsla(120, 60%, 50%, 1);
+            position: relative;
+        }
+        #idChld{
+            width: 80px;
+            height: 80px;
+            background-color: hsla(300, 100%, 50%, 1);
+            position: absolute;
+            transition: 0.5s;
+        }
+    </style>
+    <script>
+        var idIntrvl;
+        function mOk(){
+            let lBtn = document.getElementById("idBtn");
+            let lChld = document.getElementById("idChld");
+            
+            if(lBtn.textContent.trim() == "start")
+            {
+                lBtn.textContent = "stop";
+                
+                lChld.style.left = "0%";
+                lChld.style.top = "0%";
+
+                idIntrvl = setInterval(mIntrvl, 200);
+                
+                function mIntrvl(){
+                    let sLeft = lChld.style.left;
+                    let lLeft = Number(sLeft.substring(0, sLeft.length-1));
+                    let sTop = lChld.style.top;
+                    let lTop = Number(sTop.substring(0, sTop.length-1));
+                    // alert("("+lLeft+","+lTop+")");
+                    lLeft = (lLeft +2)%52;
+                    lTop = (lTop +2)%52;
+                    // lLeft += 2;
+                    // lTop += 2;
+                    lChld.style.left = lLeft + "%";
+                    lChld.style.top = lTop + "%";
+                }
+            }
+            else // "stop"
+            {
+                lChld.style.left = "0%";
+                lChld.style.top = "0%";
+                clearInterval(idIntrvl);
+                lBtn.textContent = "start";
+                // clearInterval(idIntrvl);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="idBtn" onclick="mOk();"> start </button>
+    <div id="idPrnt">
+        <div id="idChld">
+
+        </div>
+    </div>
+</body>
+</html>
